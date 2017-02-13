@@ -7,6 +7,7 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class GUI extends JPanel implements MouseMotionListener, KeyListener {
@@ -33,6 +34,17 @@ public class GUI extends JPanel implements MouseMotionListener, KeyListener {
 		this.addMouseMotionListener(this);
 		detectBallCollision();
 	}
+	
+	public void initGUI() {
+		JFrame frame = new JFrame();
+		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		
+		frame.getContentPane().add(this);
+		frame.setVisible(true);
+	}
+
 	
 	private void moveBall() {
 		ball.setBallX(ball.getBallX() + ball.getBallXV());
