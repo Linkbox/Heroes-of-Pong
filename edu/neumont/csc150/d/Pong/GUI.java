@@ -18,6 +18,8 @@ public class GUI extends JPanel implements MouseMotionListener, KeyListener {
 	
 	Ball ball = new Ball(50, 50, 4, 0);
 	
+	private final int MAXIMUM_VELOCITY = 15;
+	
 	public GUI() {
 		this.setBackground(Color.BLACK);
 	}
@@ -52,9 +54,14 @@ public class GUI extends JPanel implements MouseMotionListener, KeyListener {
 	}
 	
 	private void detectBallCollision() {
-		if (ball.getBallX() == p2.getPaddleX() && ball.getBallY() == p2.getPaddleY() ||
-				ball.getBallX() == p1.getPaddleX()) {
-			ball.setBallXV((int) (ball.getBallXV() * -1.5));
+		if (ball.getBallX() + ball.BALL_WIDTH < p2.getPaddleX()  + Math.abs(ball.getBallXV()) && 
+				ball.getBallX() + ball.BALL_WIDTH > p2.getPaddleX() - Math.abs(ball.getBallXV()) ||
+				ball.getBallX() < (p1.getPaddleX() + p1.PADDLE_WIDTH) - Math.abs(ball.getBallXV())) {
+			if (ball.getBallXV() > Math.abs(MAXIMUM_VELOCITY)) {				
+				ball.setBallXV(ball.getBallXV() * -1);
+			} else {
+				ball.setBallXV((int) (ball.getBallXV() * -1.5));
+			}
 		}
 	}
 
