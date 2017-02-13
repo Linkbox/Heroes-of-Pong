@@ -1,13 +1,15 @@
 package edu.neumont.csc150.d.Pong;
 
 public class Ball {
-	private int ballX, ballY, ballXV, ballYV;
+	private int ballX, ballY;
 	
-	public final int BALL_HEIGHT = 24, BALL_WIDTH = 24;
+	private double ballXV, ballYV;
+	
+	public final int BALL_HEIGHT = 30, BALL_WIDTH = 30;
 
 	public Ball() {
 	}
-	public Ball(int x, int y, int xv, int yv) {
+	public Ball(int x, int y, double xv, double yv) {
 		this.setBallX(x);
 		this.setBallY(y);
 		this.setBallXV(xv);
@@ -45,29 +47,29 @@ public class Ball {
 	/**
 	 * @return the ballXV
 	 */
-	public int getBallXV() {
+	public double getBallXV() {
 		return ballXV;
 	}
 
 	/**
-	 * @param ballXV the ballXV to set
+	 * @param xv the ballXV to set
 	 */
-	public void setBallXV(int ballXV) {
-		this.ballXV = ballXV;
+	public void setBallXV(double xv) {
+		this.ballXV = xv;
 	}
 
 	/**
 	 * @return the ballYV
 	 */
-	public int getBallYV() {
+	public double getBallYV() {
 		return ballYV;
 	}
 
 	/**
-	 * @param ballYV the ballYV to set
+	 * @param yv the ballYV to set
 	 */
-	public void setBallYV(int ballYV) {
-		this.ballYV = ballYV;
+	public void setBallYV(double yv) {
+		this.ballYV = yv;
 	}
 
 }
