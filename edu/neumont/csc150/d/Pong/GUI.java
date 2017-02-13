@@ -56,7 +56,7 @@ public class GUI extends JPanel implements MouseMotionListener, KeyListener {
 	private void detectBallCollision() {
 		if (ball.getBallX() + ball.BALL_WIDTH < p2.getPaddleX()  + Math.abs(ball.getBallXV()) && 
 				ball.getBallX() + ball.BALL_WIDTH > p2.getPaddleX() - Math.abs(ball.getBallXV())  &&
-				ball.getBallY() + ball.BALL_HEIGHT == p2.getPaddleY()||
+				ball.getBallY() + ball.BALL_HEIGHT > p2.getPaddleY()||
 				ball.getBallX() < (p1.getPaddleX() + p1.PADDLE_WIDTH) - Math.abs(ball.getBallXV())) {
 			if (ball.getBallXV() > Math.abs(MAXIMUM_VELOCITY)) {				
 				ball.setBallXV(ball.getBallXV() * -0.5);
@@ -68,7 +68,6 @@ public class GUI extends JPanel implements MouseMotionListener, KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -80,7 +79,10 @@ public class GUI extends JPanel implements MouseMotionListener, KeyListener {
 
 	@Override
 	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
+		if (e.get) {
+			p1.setPaddleY(p1.getPaddleY() + 1);
+		}
+		this.repaint();
 		
 	}
 
